@@ -1,0 +1,24 @@
+.middlePArtOfPage{
+  display: grid;
+  grid-template-columns: auto 1fr; 
+  .filterPlantsWithSortBy{
+ 
+  .filterPlants{
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 48px;
+    margin-left: 50px;
+
+    
+  }
+  .listCards{
+    margin-left: 80px;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 37px;
+  }
+}
+  }

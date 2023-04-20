@@ -1,0 +1,24 @@
+.container {
+  position: relative;
+}
+
+.sortByContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.popup {
+  position: absolute;
+  top: 100%;
+  left: 63px;
+ background-color: transparent;
+  
+  z-index: 1;
+}
+
+.flipped {
+  transform: rotate(180deg);
+  cursor: pointer;
+
+}
