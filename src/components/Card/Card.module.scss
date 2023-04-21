@@ -1,31 +1,129 @@
-.card {
+.cardContainer {
   width: 258px;
-  height: 300px;
-  background: #fbfbfb;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
+  height: 340px;
+  .cardWithImage{
+    position: relative;
   overflow: hidden;
-  margin-bottom: 12px;
+    width: 258px;
+    height: 300px;  
+  margin-bottom: 10px;
+  background: #faf7f7;
+  transition: 0.3s ease-out;
 
-  .cardContent {
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-  }
-
-  .title {
-    margin: 0;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.2;
-    color: #111;
-  }
-
-  .price {
-    color: #4ccc65;
-    font-weight: 600;
-    font-size: 16px;
+	&:hover{
+		transform: translateY(4px);
+    border-top: 2px solid #4ccc65;
+     cursor: pointer;
+     .backgroundForIcons {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+    .icons {
+      transform: translateY(0px);
+      opacity: 1;
+    }
   }
 }
+  .cardWithImage .plantPicture {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    width: 90%;
+    height: 90%;
+  }
+  .cardWithImage .backgroundForIcons{
+    position: absolute;
+     width: 125px;
+     height: 36px;
+     margin-left: 66.5px;
+     margin-top: 258px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     transform: translateY(40px);
+    opacity: 0;
+    transition: transform 0.6s, opacity 0.6s;
+    .background {
+      width: 35px;
+      height: 35px;
+      border-radius: 4px;
+   }
+  }
+//  .cardWithImage:hover .backgroundForIcons {
+//   transform: translateY(40px);
+//   transition: 0.5s; 
+//   opacity:0;
+// }
+
+// .cardWithImage:hover .backgroundForIcons:hover {
+//   transform: translateY(0px);
+//   opacity: 1;
+// }
+  .cardWithImage .icons{
+    position: absolute;
+    width: 115px;
+    height: 36px;
+    margin-left: 71px;
+    margin-top: 258px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(40px);
+    opacity: 0;
+    transition: transform 0.6s, opacity 0.6s;
+   .icon {
+     width: 20px;
+     height: 20px;
+     margin-left: 2px;
+  }
+  .icon2 {
+    margin-right: 2px;
+    width: 20px;
+    height: 20px;
+ }
+ .icon3 {
+  width: 19px;
+  height: 19px;
+  margin-right: 2px;
+}
+ }
+  .overlay {
+    position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.2s ease-in-out;
+
+  }
+  
+  .cardTitleWithPrice {
+    display: flex;
+    flex-direction: column;
+  
+  .title {
+    margin:0;
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 16px;
+color: #3D3D3D;
+  }
+  .price {
+    margin: 0;
+    padding-top: 6px;
+    color: #4ccc65;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 16px;
+  }
+}
+}   
+
