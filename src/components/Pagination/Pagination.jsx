@@ -6,7 +6,6 @@ const PaginationWrapper = styled.ul`
   justify-content: center;
   list-style: none;
   margin-top: 20px;
-  margin-bottom: 100px;
   li {
     padding: 0px 8px;
   }

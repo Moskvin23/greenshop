@@ -1,0 +1,34 @@
+@mixin button-bg($bg) {
+  margin-left: 30px;
+  background: $bg;
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    background:darken($bg,8%);
+    transform: scale(1.08);
+    transition: all 0.3s ease;
+  }
+  &:active {
+    background:darken($bg,25%);
+  } 
+}
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration:none;
+  font-family: 'Cera Pro';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+color: #FFFFFF;
+width: 150px;
+height: 35px;
+border-radius: 6px;
+gap: 10px;
+padding: 7px 3px;
+ }
+ 
+ .btnGreen {
+    @include button-bg(#4ccc65);
+ }

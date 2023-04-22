@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './Card.module.scss';
+import styles from './PlantCard.module.scss';
 import pic2 from '../../assets/images/Plant2.png';
 import icon1 from '../../assets/icons/iconsForCard/backgroundForIcons.png';
 import basket from '../../assets/icons/iconsForCard/basket.svg';
 import like from '../../assets/icons/iconsForCard/like.svg';
 import search from '../../assets/icons/iconsForCard/search.svg';
 
-const Card = () => {
+const PlantCard = () => {
   return (
     <>
       <div className={styles.cardContainer}>
@@ -32,4 +32,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default PlantCard;

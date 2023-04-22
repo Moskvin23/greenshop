@@ -27,3 +27,33 @@
   }
 }
   }
+.sectionWithPromotionCards{
+  display: flex;
+  gap: 28px;
+  margin-top: 145px;
+  margin-bottom: 140px;
+}
+.sectionWithBlogPosts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+  text-align: center;
+   h2 {
+  margin: 0;
+  font-style: normal;
+font-weight: 700;
+font-size: 30px;
+line-height: 16px;
+margin-bottom: 20px;
+  }
+  p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #727272;
+    margin: 0;
+    margin-bottom: 35px;
+  }
+}
