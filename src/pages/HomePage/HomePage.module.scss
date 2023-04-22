@@ -2,7 +2,12 @@
   display: grid;
   grid-template-columns: auto 1fr; 
   .filterPlantsWithSortBy{
- 
+    .paginationSection{
+      display: flex;
+      justify-content: end;
+      margin-top:90px;
+      margin-right: 20px; 
+    }
   .filterPlants{
    
     display: flex;
