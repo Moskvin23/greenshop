@@ -16,6 +16,11 @@ padding-top: 15px;
     img{
       width: 130%;
       margin-bottom: 80px;
+      transition: transform 0.2s ease-in-out;
+      &:hover{
+        transform: scale(1.08);
+    transition: all 0.3s ease;
+      }
     }
   }
   .sectionWithTitleDescriptionButton {

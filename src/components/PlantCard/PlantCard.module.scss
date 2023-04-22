@@ -11,8 +11,8 @@
   transition: 0.3s ease-out;
 
 	&:hover{
-		transform: translateY(4px);
-    border-top: 2px solid #4ccc65;
+		transform: translateY(2px);
+   border-top: 2px solid #d2f1d7;
      cursor: pointer;
      .backgroundForIcons {
       transform: translateY(0px);
@@ -51,16 +51,7 @@
       border-radius: 4px;
    }
   }
-//  .cardWithImage:hover .backgroundForIcons {
-//   transform: translateY(40px);
-//   transition: 0.5s; 
-//   opacity:0;
-// }
 
-// .cardWithImage:hover .backgroundForIcons:hover {
-//   transform: translateY(0px);
-//   opacity: 1;
-// }
   .cardWithImage .icons{
     position: absolute;
     width: 115px;

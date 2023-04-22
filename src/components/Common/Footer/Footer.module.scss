@@ -1,6 +1,31 @@
 .container{
-
+border-bottom: 1px solid #d2f1d7;
+margin-bottom: 20px;
+h4{
+  margin: 0;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 16px;
+}
   .topSection{
+    background-color: #faf7f7;
+    height: 250px;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 70% 30%;
+.leftPart{
+  display: grid;
+      grid-template-columns: repeat(3, 1fr) 5%;
+      margin-left: 23px;
+     h4{
+      margin-top: 15px;
+     }
+     p {
+      max-width: 80%;
+      color: rgba(114, 114, 114, 1);
+     }
+}
 
   }
   .middleSection{
@@ -9,25 +34,45 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-
     p{
       display: flex;
       align-items: center;
       gap: 10px;
+      
     }
   }
   .bottomSection{
+    background-color: #faf7f7;
     height: 240px;
-    display: flex;
     align-items: center;
-    justify-content: space-between;
     display: grid;
     grid-template-columns: 70% 30%;
     .leftPart{
       display: grid;
-      grid-template-columns: repeat(3, 1fr) 0%;
-      
-    }
-  }
+      grid-template-columns: repeat(3, 1fr) 5%;
+      margin-left: 23px;
+ul > li {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 30px;
 
 }
+h4  {
+  margin-bottom: 10px;
+  }
+ }
+
+    .fourthSection {
+      display: grid;
+      gap: 15px;
+      margin-top: 30px;
+      grid-template-rows: repeat(4, 1fr) 30%;
+
+      .socialIcons {
+        display: flex;
+        gap:10px;
+      }
+    }
+  }
+  }
