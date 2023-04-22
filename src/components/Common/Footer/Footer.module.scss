@@ -1,0 +1,33 @@
+.container{
+
+  .topSection{
+
+  }
+  .middleSection{
+    height: 88px;
+    background-color:  rgba(70, 163, 88, 0.1);;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    p{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+  .bottomSection{
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    .leftPart{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr) 0%;
+      
+    }
+  }
+
+}
