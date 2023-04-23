@@ -26,7 +26,16 @@ h4{
       color: rgba(114, 114, 114, 1);
      }
 }
-
+.fourthSection{
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 35px;
+  color: rgba(114, 114, 114, 1);
+  
+}
   }
   .middleSection{
     height: 88px;
@@ -72,6 +81,13 @@ h4  {
       .socialIcons {
         display: flex;
         gap:10px;
+        .socialIcon{
+          transition: all 0.3s ease-in-out;
+      &:hover {
+        transform: scale(1.2); 
+        cursor: pointer;
+      }
+        }
       }
     }
   }

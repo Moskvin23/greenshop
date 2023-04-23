@@ -38,7 +38,6 @@ const Footer = () => {
 
         <div className={styles.fourthSection}>
           <h4>Would you like to join newsletters?</h4>
-          <input />
           <p>
             We usually post offers and challenges in newsletter. We're your online houseplant
             destination. We offer a wide range of houseplants and accessories shipped directly from
@@ -98,20 +97,20 @@ const Footer = () => {
           <h4>Social Media</h4>
           <div className={styles.socialIcons}>
             <a>
-              <img src={facebook} alt="facebookLogo" />
+              <img src={facebook} alt="facebookLogo" className={styles.socialIcon} />
             </a>
             <a>
-              <img src={instagram} alt="instagramLogo" />
+              <img src={instagram} alt="instagramLogo" className={styles.socialIcon} />
             </a>
 
             <a>
-              <img src={twitter} alt="twitterLogo" />
+              <img src={twitter} alt="twitterLogo" className={styles.socialIcon} />
             </a>
             <a>
-              <img src={linkedin} alt="linkedinLogo" />
+              <img src={linkedin} alt="linkedinLogo" className={styles.socialIcon} />
             </a>
             <a>
-              <img src={youtube} alt="youtubeLogo" />
+              <img src={youtube} alt="youtubeLogo" className={styles.socialIcon} />
             </a>
           </div>
 
