@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './PlantCard.module.scss';
-import pic2 from '../../assets/images/Plant2.png';
+import pic2 from '../../assets/images/imagesForCards/Plant2.png';
 import icon1 from '../../assets/icons/iconsForCard/backgroundForIcons.png';
 import basket from '../../assets/icons/iconsForCard/basket.svg';
 import like from '../../assets/icons/iconsForCard/like.svg';

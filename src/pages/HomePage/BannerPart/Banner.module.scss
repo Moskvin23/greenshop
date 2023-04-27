@@ -1,0 +1,60 @@
+.wrapper{
+  margin-top: 12px;
+ .container {
+    padding-top: 70px;
+    padding-left: 45px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-height: 450px; 
+    background:  linear-gradient(rgba(245, 245, 245) 0%, rgba(245, 245, 245) 100%);
+.leftSection{
+ .mainTitle{
+font-weight: 500;
+font-size: 14px;
+line-height: 16px;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+margin-bottom: 10px;    
+}
+.title {
+margin:0;
+padding:0;
+font-style: normal;
+font-weight: 900;
+font-size: 70px;
+line-height: 70px;
+text-transform: uppercase;
+margin-bottom: 10px;    
+
+span{
+  color: #4ccc65;
+    }
+  }
+  .description{
+    font-family: 'Cera Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 24px;
+color: #727272;
+margin-bottom: 45px;
+  }
+  .buttonWrapper {
+    margin-left: -30px;
+  }
+    }
+    .rightSection{
+      display: flex;
+      margin-left: 50px;
+      height: 100%;
+      
+    }
+    .rightSection img {
+      height: 100%;
+      width: 80%;
+      object-fit: cover;
+
+    }
+    
+  }
+}

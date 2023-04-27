@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../../components/Common/Header/Header';
-import Slider from './SliderPart/Slider';
+import Banner from './BannerPart/Banner';
 import styles from './HomePage.module.scss';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import FilterPlants from '../../components/FilterPlants/FilterPlants';
@@ -9,10 +9,15 @@ import PlantCard from '../../components/PlantCard/PlantCard';
 import Pagination from '../../components/Pagination/Pagination';
 import { useState } from 'react';
 import PromotionCard from '../../components/PromotionCard/PromotionCard';
+import { setCategoryId } from '../../Redux/slices/FilterSlice';
 import OurBlogPosts from './OurBlogPosts/OurBlogPosts';
 import Footer from '../../components/Common/Footer/Footer';
+import { useSelector, useDispatch } from 'react-redux';
 
 const HomePage = () => {
+  const dispatch = useDispatch(setCategoryId());
+  const categoryId = useSelector((state) => state.filterSlice.categoryId);
+
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(4);
   const [totalItems] = useState(16);
@@ -25,7 +30,7 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <Slider />
+      <Banner />
       <div className={styles.middlePArtOfPage}>
         <Sidebar />
         <div className={styles.filterPlantsWithSortBy}>

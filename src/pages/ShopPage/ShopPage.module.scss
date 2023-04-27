@@ -1,0 +1,151 @@
+.container{
+  width: 100%;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  p{
+    font-weight: 400;
+font-size: 14px;
+line-height: 24px;
+color: #727272;
+  }
+  span{
+    color:rgb(41, 41, 41);
+    font-weight: 500;
+  }
+  .plantOverview{
+    height: 635px;
+    display: flex; 
+    flex-direction: row;
+  .leftSection{
+    flex:1;
+display: grid;
+grid-template-columns: 100px 1fr;
+align-content: center;
+
+
+.col1{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+}
+.col1  img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+.col2{
+  margin-left: 29px;
+}
+.col2 img {
+  width: 445px;
+  height: 445px;
+  object-fit: contain;
+}
+  }
+  .rightSection{
+flex: 1;
+h1,h5,p{
+  margin: 0; 
+}
+.shortDescription{
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+h5{
+  font-weight: 500;
+font-size: 16px;
+line-height: 16px;
+}
+.topOfRightSection {
+  margin-top: 95px;
+    border-bottom: 1px solid #d2f1d7;    
+    h1{
+      font-style: normal;
+font-weight: 700;
+font-size: 28px;
+line-height: 16px;
+margin-bottom: 20px;
+    }
+    .priceAndReview{
+      display: flex;
+      justify-content: space-between;
+      .price{
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 16px;
+        color: #4ccc65;
+        margin-bottom: 12px;
+      }
+    }
+ 
+    
+}
+.size{
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+.increment{
+  margin-top: 23px;
+  margin-bottom: 26px;
+}
+.shareThisProducts{
+  margin-top: 18px;
+}
+  }
+}
+  .plantItems{
+    
+  ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 37px;
+      display: flex;
+      white-space:nowrap;
+      li {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 16px;
+        cursor: pointer;
+        transition: color 0.2s ease;
+        width:100%;
+       
+    
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &:hover {
+          color: #4ccc65;
+          padding-bottom: 7px;
+          border-bottom: 2px solid #4ccc65;
+        }
+        &.active {
+          font-weight: 700;
+          color: #4ccc65;
+          padding-bottom: 7px;
+          border-bottom: 2px solid #4ccc65;
+        }
+       
+      }
+    }
+    
+  }
+.border{
+  border-bottom: 1px solid #d2f1d7;
+  width: 100%;
+}
+.productDescription{
+  margin-top: 20px;
+  margin-bottom: 130px;
+  p,h5{
+    margin:0px;
+  }
+  .titleForProductDescription{
+    margin-top: 18px;
+    margin-bottom: 4px;
+  }
+}
+}
+
