@@ -5,6 +5,7 @@ import LoginButton from '../../Buttons/LoginButton/LoginButton';
 import CustomNavLink from '../../CustomNavLink/CustomNavLink';
 import BasketButton from '../../Buttons/BasketButton/BasketButton';
 import SearchButton from '../../Buttons/SearchButton/SearchButton';
+import { useNavigate } from 'react-router-dom';
 const links = [
   { to: '/', label: 'Home' },
   { to: '/shop', label: 'Shop' },
@@ -12,6 +13,13 @@ const links = [
   { to: '/blogs', label: 'Blogs' },
 ];
 const Header = () => {
+  const navigate = useNavigate();
+  const handleLoginClick = () => {
+    navigate('/login');
+  };
+  const handleBasketClick = () => {
+    navigate('/basket');
+  };
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -31,8 +39,12 @@ const Header = () => {
         </section>
         <section className={styles.rightPartOfHeader}>
           <SearchButton />
-          <BasketButton />
-          <LoginButton />
+          <div onClick={handleBasketClick}>
+            <BasketButton />
+          </div>
+          <div onClick={handleLoginClick}>
+            <LoginButton />
+          </div>
         </section>
       </div>
       <div className={styles.border}></div>

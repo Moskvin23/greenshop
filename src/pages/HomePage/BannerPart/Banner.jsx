@@ -2,7 +2,8 @@ import React from 'react';
 import styles from './Banner.module.scss';
 import mainImage from '../../../assets/images/mainImageForSlider.png';
 import ShopNowButton from '../../../components/Buttons/ShopNowButton/ShopNowButton';
-const Slider = () => {
+
+const Banner = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -27,4 +28,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default Banner;

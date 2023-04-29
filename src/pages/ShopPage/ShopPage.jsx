@@ -7,7 +7,7 @@ const items = [
   { id: 1, name: 'Product Description' },
   { id: 2, name: 'Reviews' },
 ];
-const ShopPage = () => {
+const ShopPage = ({ title, image, price }) => {
   const [activeCategory, setActiveCategory] = useState(items[0]);
   const handleClick = (items) => {
     setActiveCategory(items);

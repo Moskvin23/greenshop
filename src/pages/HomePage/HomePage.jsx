@@ -5,19 +5,14 @@ import styles from './HomePage.module.scss';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import FilterPlants from '../../components/FilterPlants/FilterPlants';
 import SortingCards from '../../components/SortingCards/SortingCards';
-import PlantCard from '../../components/PlantCard/PlantCard';
 import Pagination from '../../components/Pagination/Pagination';
 import { useState } from 'react';
 import PromotionCard from '../../components/PromotionCard/PromotionCard';
-import { setCategoryId } from '../../Redux/slices/FilterSlice';
 import OurBlogPosts from './OurBlogPosts/OurBlogPosts';
 import Footer from '../../components/Common/Footer/Footer';
-import { useSelector, useDispatch } from 'react-redux';
+import PlantList from '../../components/PlantCard/PlantList';
 
 const HomePage = () => {
-  const dispatch = useDispatch(setCategoryId());
-  const categoryId = useSelector((state) => state.filterSlice.categoryId);
-
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(4);
   const [totalItems] = useState(16);
@@ -31,23 +26,15 @@ const HomePage = () => {
     <>
       <Header />
       <Banner />
-      <div className={styles.middlePArtOfPage}>
+      <div className={styles.middlePArtOfPage} id="middleSection">
         <Sidebar />
         <div className={styles.filterPlantsWithSortBy}>
           <div className={styles.filterPlants}>
             <FilterPlants />
             <SortingCards />
           </div>
-          <div className={styles.listCards}>
-            <PlantCard />
-            <PlantCard />
-            <PlantCard />
-            <PlantCard />
-            <PlantCard />
-            <PlantCard />
-            <PlantCard />
-            <PlantCard />
-            <PlantCard />
+          <div>
+            <PlantList />
           </div>
           <div className={styles.paginationSection}>
             <Pagination itemsPerPage={itemsPerPage} totalItems={totalItems} paginate={paginate} />

@@ -1,7 +1,15 @@
 import React from 'react';
 import styles from './ShopNowButton.module.scss';
-const FilterButton = () => {
-  return <a className={`${styles.btn} ${styles.btnGreen}`}>Shop now</a>;
+const ShopNowButton = () => {
+  const handleClick = () => {
+    const middleSection = document.querySelector('#middleSection');
+    middleSection.scrollIntoView({ behavior: 'smooth' });
+  };
+  return (
+    <a className={`${styles.btn} ${styles.btnGreen}`} onClick={handleClick}>
+      Shop now
+    </a>
+  );
 };
 
-export default FilterButton;
+export default ShopNowButton;

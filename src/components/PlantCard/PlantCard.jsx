@@ -1,31 +1,37 @@
 import React from 'react';
 import styles from './PlantCard.module.scss';
-import pic2 from '../../assets/images/imagesForCards/Plant2.png';
+
 import icon1 from '../../assets/icons/iconsForCard/backgroundForIcons.png';
 import basket from '../../assets/icons/iconsForCard/basket.svg';
 import like from '../../assets/icons/iconsForCard/like.svg';
 import search from '../../assets/icons/iconsForCard/search.svg';
+import { useNavigate } from 'react-router-dom';
 
-const PlantCard = () => {
+const PlantCard = ({ title, image, price }) => {
+  const navigate = useNavigate();
+  const handleBasketClick = () => {
+    navigate('/basket');
+  };
+
   return (
     <>
       <div className={styles.cardContainer}>
         <div className={styles.cardWithImage}>
-          <img alt="somePicture" src={pic2} className={styles.plantPicture} />
+          <img alt="somePicture" src={image} className={styles.plantPicture} />
           <div className={styles.backgroundForIcons}>
             <img src={icon1} alt="icon1" className={styles.background} />
             <img src={icon1} alt="icon1" className={styles.background} />
             <img src={icon1} alt="icon1" className={styles.background} />
           </div>
           <div className={styles.icons}>
-            <img src={basket} alt="icon1" className={styles.icon} />
+            <img src={basket} alt="icon1" className={styles.icon} onClick={handleBasketClick} />
             <img src={like} alt="icon1" className={styles.icon2} />
             <img src={search} alt="icon1" className={styles.icon3} />
           </div>
         </div>
         <div className={styles.cardTitleWithPrice}>
-          <h2 className={styles.title}>Barberton Daisy</h2>
-          <p className={styles.price}>$119.00</p>
+          <h2 className={styles.title}>{title}</h2>
+          <p className={styles.price}>{price}</p>
         </div>
       </div>
     </>

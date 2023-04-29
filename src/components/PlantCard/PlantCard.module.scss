@@ -22,6 +22,10 @@
       transform: translateY(0px);
       opacity: 1;
     }
+    .icons img:hover {
+      transform: scale(1.3);
+      transition: transform 0.3s ease-in-out;
+    }
   }
 }
   .cardWithImage .plantPicture {
@@ -32,6 +36,7 @@
     object-fit: cover;
     width: 90%;
     height: 90%;
+    
   }
   .cardWithImage .backgroundForIcons{
     position: absolute;
@@ -49,6 +54,7 @@
       width: 35px;
       height: 35px;
       border-radius: 4px;
+  
    }
   }
 
@@ -117,4 +123,5 @@ color: #3D3D3D;
   }
 }
 }   
+
 
