@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './PlantCard.module.scss';
 
 import icon1 from '../../assets/icons/iconsForCard/backgroundForIcons.png';
@@ -12,11 +12,23 @@ const PlantCard = ({ title, image, price }) => {
   const handleBasketClick = () => {
     navigate('/basket');
   };
+  const [isImageHovered, setIsImageHovered] = useState(false);
+
+  const handleSearchHover = () => {
+    setIsImageHovered(true);
+  };
+
+  const handleSearchLeave = () => {
+    setIsImageHovered(false);
+  };
 
   return (
     <>
       <div className={styles.cardContainer}>
-        <div className={styles.cardWithImage}>
+        <div
+          className={`${styles.cardWithImage} ${isImageHovered ? styles.hovered : ''}`}
+          onMouseEnter={handleSearchHover}
+          onMouseLeave={handleSearchLeave}>
           <img alt="somePicture" src={image} className={styles.plantPicture} />
           <div className={styles.backgroundForIcons}>
             <img src={icon1} alt="icon1" className={styles.background} />
