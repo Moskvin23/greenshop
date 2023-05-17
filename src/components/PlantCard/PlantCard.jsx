@@ -12,6 +12,9 @@ const PlantCard = ({ title, image, price }) => {
   const handleBasketClick = () => {
     navigate('/basket');
   };
+  const handleShopClick = () => {
+    navigate('/shop');
+  };
   const [isImageHovered, setIsImageHovered] = useState(false);
 
   const handleSearchHover = () => {
@@ -29,7 +32,12 @@ const PlantCard = ({ title, image, price }) => {
           className={`${styles.cardWithImage} ${isImageHovered ? styles.hovered : ''}`}
           onMouseEnter={handleSearchHover}
           onMouseLeave={handleSearchLeave}>
-          <img alt="somePicture" src={image} className={styles.plantPicture} />
+          <img
+            alt="somePicture"
+            onClick={handleShopClick}
+            src={image}
+            className={styles.plantPicture}
+          />
           <div className={styles.backgroundForIcons}>
             <img src={icon1} alt="icon1" className={styles.background} />
             <img src={icon1} alt="icon1" className={styles.background} />

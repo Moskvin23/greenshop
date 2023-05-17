@@ -28,6 +28,10 @@ const PlantList = () => {
         </div>
       ) : status === 'loading' ? (
         [...new Array(9)].map((_, index) => <PlantCardSkeleton key={index} />)
+      ) : plants.length === 0 ? (
+        <div>
+          <h2>There are currently no plants from this category</h2>
+        </div>
       ) : (
         plants.map((plant) => (
           <PlantCard
