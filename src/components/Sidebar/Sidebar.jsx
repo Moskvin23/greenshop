@@ -3,7 +3,7 @@ import styles from './Sidebar.module.scss';
 import MultiRangeSlider from '../MultiRangeSlider/MultiRangeSlider';
 import FilterButton from '../Buttons/FilterButton/FilterButton';
 import { useSelector, useDispatch } from 'react-redux';
-import { setActiveCategory } from '../../Redux/slices/categoriesSlice';
+import { activeCategorySelector, setActiveCategory } from '../../Redux/slices/categoriesSlice';
 import { setActiveSizeCategory } from '../../Redux/slices/sizeSlice';
 import { useEffect } from 'react';
 
@@ -12,7 +12,7 @@ const Sidebar = () => {
 
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories.list);
-  const activeCategory = useSelector((state) => state.categories.activeCategory);
+  const activeCategory = useSelector(activeCategorySelector);
   const size = useSelector((state) => state.size.list);
   const activeSizeCategory = useSelector((state) => state.size.activeSizeCategory);
 

@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchPlants = createAsyncThunk('plants/fetchPlants', async (params) => {
   const { activeCategory } = params;
   const { data } = await axios.get(
-    `https://644c22f44bdbc0cc3aa333ba.mockapi.io/GreenshopAPI/Plants?name=${activeCategory.id}`,
+    `https://644c22f44bdbc0cc3aa333ba.mockapi.io/GreenshopAPI/Plants?name=${activeCategory?.id}`,
   );
 
   return data;
@@ -40,6 +40,6 @@ const plantsSlice = createSlice({
       });
   },
 });
-
+export const plantsSelector = (state) => state.plants.plants;
 export const { setPlants } = plantsSlice.actions;
 export default plantsSlice.reducer;
