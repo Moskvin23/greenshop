@@ -1,18 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { productCategory } from '../../components/enums';
 
 const categoriesSlice = createSlice({
   name: 'categories',
   initialState: {
     list: [
-      { id: 1, nameCategory: 'House Plants', quantity: 33, active: true },
-      { id: 2, nameCategory: 'Potter Plants', quantity: 12, active: false },
-      { id: 3, nameCategory: 'Seeds', quantity: 65, active: false },
-      { id: 4, nameCategory: 'Small Plants', quantity: 39, active: false },
-      { id: 5, nameCategory: 'Big Plants', quantity: 23, active: false },
-      { id: 6, nameCategory: 'Succulents', quantity: 17, active: false },
-      { id: 7, nameCategory: 'Terrariums', quantity: 19, active: false },
-      { id: 8, nameCategory: 'Gardening', quantity: 13, active: false },
-      { id: 9, nameCategory: 'Accessories', quantity: 18, active: false },
+      // { id: 1, name: productCategory.housePlant, active: true },
+      { id: 1, name: 'House Plant', active: true },
+      { id: 2, name: 'Potted Plants', active: false },
+      { id: 3, name: 'Seeds', active: false },
+      { id: 4, name: 'Small Plants', active: false },
+      { id: 5, name: 'Big Plants', active: false },
+      { id: 6, name: 'Succulents', active: false },
+      { id: 7, name: 'Terrariums', active: false },
+      { id: 8, name: 'Gardening', active: false },
+      { id: 9, name: 'Accessories', active: false },
     ],
     activeCategory: null,
   },
@@ -27,9 +29,15 @@ const categoriesSlice = createSlice({
         }
       });
     },
+    updateCategoryQuantity: (state, action) => {
+      state.list.forEach((category) => {
+        const categoryCards = action.payload.filter((card) => card.name === category.id);
+        category.quantity = categoryCards.length;
+      });
+    },
   },
 });
 
-export const { setActiveCategory } = categoriesSlice.actions;
+export const { setActiveCategory, updateCategoryQuantity } = categoriesSlice.actions;
 
 export default categoriesSlice.reducer;

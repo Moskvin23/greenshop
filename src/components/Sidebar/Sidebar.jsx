@@ -8,7 +8,7 @@ import { setActiveSizeCategory } from '../../Redux/slices/sizeSlice';
 import { useEffect } from 'react';
 
 const Sidebar = () => {
-  const [priceRange, setPriceRange] = useState({ min: 0, max: 1250 });
+  const [priceRange, setPriceRange] = useState({ min: 0, max: 300 });
 
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories.list);
@@ -20,7 +20,7 @@ const Sidebar = () => {
     if (!activeCategory) {
       dispatch(setActiveCategory({ id: categories[0].id }));
     }
-  }, [activeCategory, dispatch, categories]);
+  }, [activeCategory, categories, dispatch]);
 
   const handleClickCategory = (category) => {
     dispatch(setActiveCategory({ id: category.id }));
@@ -39,7 +39,7 @@ const Sidebar = () => {
               key={category.id}
               className={category.id === activeCategory?.id ? styles.active : ''}
               onClick={() => handleClickCategory(category)}>
-              {category.nameCategory}
+              {category.name}
               <span>({category.quantity})</span>
             </li>
           ))}
@@ -56,7 +56,7 @@ const Sidebar = () => {
           />
         </div>
       </div>
-      <FilterButton />
+      <FilterButton onChange={(value) => setPriceRange(value)} />
       <div className={styles.sizeSelector}>
         <h2>Size</h2>
         <ul>
