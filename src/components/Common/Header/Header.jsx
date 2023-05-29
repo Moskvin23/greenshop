@@ -5,7 +5,7 @@ import LoginButton from '../../Buttons/LoginButton/LoginButton';
 import CustomNavLink from '../../CustomNavLink/CustomNavLink';
 import BasketButton from '../../Buttons/BasketButton/BasketButton';
 import SearchButton from '../../Buttons/SearchButton/SearchButton';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const links = [
   { to: '/', label: 'Home' },
   { to: '/shop', label: 'Shop' },
@@ -24,7 +24,9 @@ const Header = () => {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <section className={styles.leftPartOfHeader}>
-          <img src={logo} alt="logo" />
+          <Link to="/">
+            <img src={logo} alt="logo" />
+          </Link>
         </section>
         <section className={styles.middlePartOfHeader}>
           <ul>
@@ -41,6 +43,7 @@ const Header = () => {
           <SearchButton />
           <div onClick={handleBasketClick}>
             <BasketButton />
+            <span>6</span>
           </div>
           <div onClick={handleLoginClick}>
             <LoginButton />
