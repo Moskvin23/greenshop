@@ -28,13 +28,16 @@ align-content: center;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-
+  .selectedImageIndex {
+    border: 2px solid #4ccc65;
+  }
 }
 .col1  img {
   width: 100px;
   height: 100px;
   object-fit: contain;
 }
+
 .col2{
   margin-left: 29px;
 }

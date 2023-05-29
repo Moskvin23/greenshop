@@ -15,17 +15,22 @@ const ShopPage = () => {
   const dispatch = useDispatch();
   const [activeCategory, setActiveCategory] = useState(items[0]);
   const selectedPlant = useSelector(selectedPlantSelector);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(selectedPlant.image);
 
   const handleClick = (items) => {
     setActiveCategory(items);
   };
-
+  const handleImageClick = (image, index) => {
+    setSelectedImage(image);
+    setSelectedImageIndex(index);
+  };
   const retrieveSelectedPlant = () => {
     const savedPlant = localStorage.getItem('selectedPlant');
     if (savedPlant) {
       try {
         const parsedPlant = JSON.parse(savedPlant);
-        setSelectedPlant(parsedPlant);
+        setSelectedPlant(parsedPlant); // Update local state
       } catch (error) {
         console.error('Error parsing selectedPlant:', error);
       }
@@ -55,12 +60,15 @@ const ShopPage = () => {
                   key={index}
                   src={require(`../../assets/images/imagesForCards/${image}`)}
                   alt="image"
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => handleImageClick(image, index)}
+                  className={selectedImageIndex === index ? styles.selectedImageIndex : ''}
                 />
               ))}
             </div>
             <div className={styles.col2}>
               <img
-                src={require(`../../assets/images/imagesForCards/${selectedPlant.image}`)}
+                src={require(`../../assets/images/imagesForCards/${selectedImage}`)}
                 alt="image"
               />
             </div>
