@@ -7,11 +7,13 @@ const items = [
   { id: 1, name: 'Product Description' },
   { id: 2, name: 'Reviews' },
 ];
-const ShopPage = ({ title, image, price }) => {
+const ShopPage = ({ title, price }) => {
   const [activeCategory, setActiveCategory] = useState(items[0]);
   const handleClick = (items) => {
     setActiveCategory(items);
   };
+
+  console.log(title, price);
   return (
     <>
       <Header />
@@ -30,9 +32,9 @@ const ShopPage = ({ title, image, price }) => {
           </div>
           <div className={styles.rightSection}>
             <div className={styles.topOfRightSection}>
-              <h1>Barberton Daisy</h1>
+              <h1></h1>
               <div className={styles.priceAndReview}>
-                <p className={styles.price}>$119.00</p>
+                <p className={styles.price}></p>
                 <p>Some Review</p>
               </div>
             </div>

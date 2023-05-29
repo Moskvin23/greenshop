@@ -1,12 +1,15 @@
+
 .wrapper{
   margin-top: 12px;
+  
  .container {
     padding-top: 70px;
     padding-left: 45px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    max-height: 450px; 
+   height: 450px; 
     background:  linear-gradient(rgba(245, 245, 245) 0%, rgba(245, 245, 245) 100%);
+    
 .leftSection{
  .mainTitle{
 font-weight: 500;
@@ -34,10 +37,11 @@ span{
     font-family: 'Cera Pro';
 font-style: normal;
 font-weight: 400;
-font-size: 14px;
+font-size: 16px;
 line-height: 24px;
 color: #727272;
-margin-bottom: 45px;
+margin-bottom: 40px;
+margin-top: 20px;
   }
   .buttonWrapper {
     margin-left: -30px;
@@ -45,16 +49,72 @@ margin-bottom: 45px;
     }
     .rightSection{
       display: flex;
-      margin-left: 50px;
-      height: 100%;
+      margin-left: 150px;
+      max-height: 70%;
       
     }
     .rightSection img {
-      height: 100%;
-      width: 80%;
-      object-fit: cover;
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
 
     }
     
   }
 }
+.dotContainer {
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  left: 45%;
+gap: 4px;
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      padding: 2px;
+      cursor: pointer;
+      
+    }
+
+    .activeDot {
+      background-color: #4ccc65;
+    }
+
+    .inactiveDot {
+      background-color: rgba(70, 163, 88, 0.3);
+    }
+  }
+
+  .slide {
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
+    position: relative;
+  }
+    .slideActive {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .slideInactive {
+      opacity: 0;
+      transform: scale(1);
+      position: absolute;
+      z-index: -1;
+    }
+    
+    .scale-100 {
+      transform: scale(1);
+    }
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    
+    .slideActive {
+      animation: fade-in 1s ease-in;
+    }

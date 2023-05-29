@@ -5,6 +5,7 @@ import PlantCard from './PlantCard';
 import PlantCardSkeleton from './Skeleton';
 import styles1 from '../../pages/HomePage/HomePage.module.scss';
 import { fetchPlants, plantsSelector } from '../../Redux/slices/plantsSlice';
+import { Link } from 'react-router-dom';
 
 const PlantList = () => {
   const plants = useSelector(plantsSelector);
@@ -36,6 +37,7 @@ const PlantList = () => {
         plants.map((plant) => (
           <PlantCard
             key={plant.id}
+            id={plant.id}
             title={plant.title}
             price={`$${plant.price.toFixed(2)}`}
             image={require(`../../assets/images/imagesForCards/${plant.image}`)}
