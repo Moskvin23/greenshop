@@ -7,13 +7,13 @@ import like from '../../assets/icons/iconsForCard/like.svg';
 import search from '../../assets/icons/iconsForCard/search.svg';
 import { useNavigate } from 'react-router-dom';
 
-const PlantCard = ({ title, image, price }) => {
+const PlantCard = ({ title, image, price, id }) => {
   const navigate = useNavigate();
   const handleBasketClick = () => {
     navigate('/basket');
   };
   const handleShopClick = () => {
-    navigate('/shop');
+    navigate(`/shop/${title}`);
   };
   const [isImageHovered, setIsImageHovered] = useState(false);
 

@@ -11,7 +11,7 @@ function App() {
     <div className={styles.wrapper}>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/shop" element={<ShopPage />} />
+        <Route path="/shop/*" element={<ShopPage />} />
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/plantCare" element={<PlantCarePage />} />
         <Route path="/login" element={<LoginPage />} />
