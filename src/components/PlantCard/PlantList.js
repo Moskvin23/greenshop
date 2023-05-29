@@ -5,13 +5,13 @@ import PlantCard from './PlantCard';
 import PlantCardSkeleton from './Skeleton';
 import styles1 from '../../pages/HomePage/HomePage.module.scss';
 import { fetchPlants, plantsSelector } from '../../Redux/slices/plantsSlice';
-import { Link } from 'react-router-dom';
 
 const PlantList = () => {
   const plants = useSelector(plantsSelector);
   let { status } = useSelector((state) => state.plants);
   const activeCategory = useSelector(activeCategorySelector);
   const dispatch = useDispatch();
+  const filteredPlants = plants.filter((plant) => plant.type === activeCategory?.name);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,20 +29,12 @@ const PlantList = () => {
         </div>
       ) : status === 'loading' ? (
         [...new Array(9)].map((_, index) => <PlantCardSkeleton key={index} />)
-      ) : plants.length === 0 ? (
+      ) : filteredPlants.length === 0 ? (
         <div>
           <h2>There are currently no plants from this category</h2>
         </div>
       ) : (
-        plants.map((plant) => (
-          <PlantCard
-            key={plant.id}
-            id={plant.id}
-            title={plant.title}
-            price={`$${plant.price.toFixed(2)}`}
-            image={require(`../../assets/images/imagesForCards/${plant.image}`)}
-          />
-        ))
+        filteredPlants.map((plant) => <PlantCard plant={plant} />)
       )}
     </div>
   );

@@ -3,17 +3,44 @@ import styles from './ShopPage.module.scss';
 import Header from '../../components/Common/Header/Header';
 import Footer from '../../components/Common/Footer/Footer';
 import pic from '../../assets/images/imagesForCards/Plant1.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectedPlantSelector, setSelectedPlant } from '../../Redux/slices/plantsSlice';
+import { useEffect } from 'react';
 const items = [
   { id: 1, name: 'Product Description' },
   { id: 2, name: 'Reviews' },
 ];
-const ShopPage = ({ title, price }) => {
+const ShopPage = () => {
+  const dispatch = useDispatch();
   const [activeCategory, setActiveCategory] = useState(items[0]);
+  const selectedPlant = useSelector(selectedPlantSelector);
   const handleClick = (items) => {
     setActiveCategory(items);
   };
+  const retrieveSelectedPlant = () => {
+    const savedPlant = localStorage.getItem('selectedPlant');
+    if (savedPlant) {
+      try {
+        const parsedPlant = JSON.parse(savedPlant);
+        dispatch(setSelectedPlant(parsedPlant));
+      } catch (error) {
+        console.error('Error parsing selectedPlant:', error);
+      }
+    }
+  };
 
-  console.log(title, price);
+  useEffect(() => {
+    retrieveSelectedPlant();
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('selectedPlant', JSON.stringify(selectedPlant));
+  }, [selectedPlant]);
+
+  if (!selectedPlant) {
+    return null;
+  }
+
   return (
     <>
       <Header />
@@ -32,9 +59,9 @@ const ShopPage = ({ title, price }) => {
           </div>
           <div className={styles.rightSection}>
             <div className={styles.topOfRightSection}>
-              <h1></h1>
+              <h1>{selectedPlant.title}</h1>
               <div className={styles.priceAndReview}>
-                <p className={styles.price}></p>
+                <p className={styles.price}>{`$${selectedPlant.price.toFixed(2)}`}</p>
                 <p>Some Review</p>
               </div>
             </div>

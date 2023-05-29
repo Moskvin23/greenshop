@@ -22,6 +22,9 @@ const plantsSlice = createSlice({
     setPlants(state, action) {
       state.plants = action.payload;
     },
+    setSelectedPlant: (state, action) => {
+      state.selectedPlant = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -40,6 +43,8 @@ const plantsSlice = createSlice({
       });
   },
 });
+export const selectedPlantSelector = (state) => state.plants.selectedPlant;
 export const plantsSelector = (state) => state.plants.plants;
 export const { setPlants } = plantsSlice.actions;
 export default plantsSlice.reducer;
+export const { setSelectedPlant } = plantsSlice.actions;
