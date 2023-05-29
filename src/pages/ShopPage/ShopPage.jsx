@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './ShopPage.module.scss';
 import Header from '../../components/Common/Header/Header';
 import Footer from '../../components/Common/Footer/Footer';
-import pic from '../../assets/images/imagesForCards/Plant1.png';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { selectedPlantSelector, setSelectedPlant } from '../../Redux/slices/plantsSlice';
 import { useEffect } from 'react';
@@ -10,19 +10,22 @@ const items = [
   { id: 1, name: 'Product Description' },
   { id: 2, name: 'Reviews' },
 ];
+
 const ShopPage = () => {
   const dispatch = useDispatch();
   const [activeCategory, setActiveCategory] = useState(items[0]);
   const selectedPlant = useSelector(selectedPlantSelector);
+
   const handleClick = (items) => {
     setActiveCategory(items);
   };
+
   const retrieveSelectedPlant = () => {
     const savedPlant = localStorage.getItem('selectedPlant');
     if (savedPlant) {
       try {
         const parsedPlant = JSON.parse(savedPlant);
-        dispatch(setSelectedPlant(parsedPlant));
+        setSelectedPlant(parsedPlant);
       } catch (error) {
         console.error('Error parsing selectedPlant:', error);
       }
@@ -40,7 +43,6 @@ const ShopPage = () => {
   if (!selectedPlant) {
     return null;
   }
-
   return (
     <>
       <Header />
@@ -48,13 +50,19 @@ const ShopPage = () => {
         <div className={styles.plantOverview}>
           <div className={styles.leftSection}>
             <div className={styles.col1}>
-              <img src={pic} alt="image" />
-              <img src={pic} alt="image" />
-              <img src={pic} alt="image" />
-              <img src={pic} alt="image" />
+              {selectedPlant.additionalImages.map((image, index) => (
+                <img
+                  key={index}
+                  src={require(`../../assets/images/imagesForCards/${image}`)}
+                  alt="image"
+                />
+              ))}
             </div>
             <div className={styles.col2}>
-              <img src={pic} alt="image" />
+              <img
+                src={require(`../../assets/images/imagesForCards/${selectedPlant.image}`)}
+                alt="image"
+              />
             </div>
           </div>
           <div className={styles.rightSection}>
