@@ -1,54 +1,62 @@
-import React, { useState } from 'react';
-import styles from './ShopPage.module.scss';
-import Header from '../../components/Common/Header/Header';
-import Footer from '../../components/Common/Footer/Footer';
-
-import { useSelector } from 'react-redux';
-import { selectedPlantSelector, setSelectedPlant } from '../../Redux/slices/plantsSlice';
-import { useEffect } from 'react';
+import React, { useState } from "react"
+import styles from "./ShopPage.module.scss"
+import Header from "../../components/Common/Header/Header"
+import Footer from "../../components/Common/Footer/Footer"
+import { FaFacebookF } from "react-icons/fa"
+import { AiOutlineTwitter } from "react-icons/ai"
+import { FaLinkedinIn } from "react-icons/fa"
+import { CiMail } from "react-icons/ci"
+import { useSelector } from "react-redux"
+import { selectedPlantSelector, setSelectedPlant } from "../../Redux/slices/plantsSlice"
+import { useEffect } from "react"
 const items = [
-  { id: 1, name: 'Product Description' },
-  { id: 2, name: 'Reviews' },
-];
+  { id: 1, name: "Product Description" },
+  { id: 2, name: "Reviews" },
+]
 
 const ShopPage = () => {
-  const [activeCategory, setActiveCategory] = useState(items[0]);
-  const selectedPlant = useSelector(selectedPlantSelector);
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const [selectedImage, setSelectedImage] = useState(selectedPlant.image);
-  const [quantity, setQuantity] = useState(1);
+  const [selectedSizeIndex, setSelectedSizeIndex] = useState(1)
+  const [activeCategory, setActiveCategory] = useState(items[0])
+  const selectedPlant = useSelector(selectedPlantSelector)
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+  const [selectedImage, setSelectedImage] = useState(selectedPlant.image)
+  const [quantity, setQuantity] = useState(1)
 
   const handleClick = (items) => {
-    setActiveCategory(items);
-  };
+    setActiveCategory(items)
+  }
   const handleImageClick = (image, index) => {
-    setSelectedImage(image);
-    setSelectedImageIndex(index);
-  };
+    setSelectedImage(image)
+    setSelectedImageIndex(index)
+  }
+
+  const handleSizeClick = (index) => {
+    setSelectedSizeIndex(index)
+  }
   const retrieveSelectedPlant = () => {
-    const savedPlant = localStorage.getItem('selectedPlant');
+    const savedPlant = localStorage.getItem("selectedPlant")
     if (savedPlant) {
       try {
-        const parsedPlant = JSON.parse(savedPlant);
-        setSelectedPlant(parsedPlant);
+        const parsedPlant = JSON.parse(savedPlant)
+        setSelectedPlant(parsedPlant)
       } catch (error) {
-        console.error('Error parsing selectedPlant:', error);
+        console.error("Error parsing selectedPlant:", error)
       }
     }
-  };
+  }
 
   useEffect(() => {
-    retrieveSelectedPlant();
-  }, []);
+    retrieveSelectedPlant()
+    window.scrollTo(0, 0)
+  }, [])
 
   useEffect(() => {
-    localStorage.setItem('selectedPlant', JSON.stringify(selectedPlant));
-  }, [selectedPlant]);
+    localStorage.setItem("selectedPlant", JSON.stringify(selectedPlant))
+  }, [selectedPlant])
 
   if (!selectedPlant) {
-    return null;
+    return null
   }
-  console.log(selectedPlant);
   return (
     <>
       <Header />
@@ -61,9 +69,9 @@ const ShopPage = () => {
                   key={index}
                   src={require(`../../assets/images/imagesForCards/${image}`)}
                   alt="image"
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                   onClick={() => handleImageClick(image, index)}
-                  className={selectedImageIndex === index ? styles.selectedImageIndex : ''}
+                  className={selectedImageIndex === index ? styles.selectedImageIndex : ""}
                 />
               ))}
             </div>
@@ -84,9 +92,21 @@ const ShopPage = () => {
             </div>
             <div className={styles.borderForRightSection}></div>
             <h5 className={styles.shortDescription}>Short Description:</h5>
-            <p>{'Sometext'}</p>
+            <p>{selectedPlant.shortDescription}</p>
             <h5 className={styles.size}>Size:</h5>
-            <div>S M L XL</div>
+            <div className={styles.sizeIndex}>
+              {selectedPlant.size.map((size, index) => (
+                <span
+                  key={index}
+                  onClick={() => handleSizeClick(index)}
+                  className={`${styles.selectedSizeIndex} ${
+                    selectedSizeIndex === index ? styles.selectedSizeIndexActive : ""
+                  }`}>
+                  {size}
+                  {index !== selectedPlant.size.length - 1 && " "}
+                </span>
+              ))}
+            </div>
             <div className={styles.counters}>
               <button
                 className={styles.incrementAndDecrement}
@@ -100,14 +120,30 @@ const ShopPage = () => {
                 +
               </button>
             </div>
-            <div>
+            <div className={styles.lastSectionOfPartOverview}>
               <p>
-                Categories: <span>Potter Plants</span>
+                Categories: <span>{selectedPlant.type}</span>
               </p>
               <p>
-                Tags: <span>Home,Garden,Plants</span>
+                Tags:{" "}
+                <span className={styles.tags}>
+                  {selectedPlant.tags.map((tag, index) => (
+                    <span>
+                      {tag.charAt(0).toUpperCase() + tag.slice(1)}
+                      {index !== selectedPlant.tags.length - 1 && ", "}
+                    </span>
+                  ))}
+                </span>
               </p>
-              <h5 className={styles.shareThisProducts}>Share this products: </h5>
+              <div className={styles.socialMediaIconsAndShare}>
+                <h5 className={styles.shareThisProducts}>Share this products: </h5>
+                <div className={styles.socialMediaIcons}>
+                  <FaFacebookF />
+                  <AiOutlineTwitter />
+                  <FaLinkedinIn />
+                  <CiMail />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -117,7 +153,7 @@ const ShopPage = () => {
               {items.map((item) => (
                 <li
                   key={item.id}
-                  className={item === activeCategory ? styles.active : ''}
+                  className={item === activeCategory ? styles.active : ""}
                   onClick={() => handleClick(item)}>
                   {item.name}
                 </li>
@@ -168,7 +204,7 @@ const ShopPage = () => {
       </div>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default ShopPage;
+export default ShopPage
