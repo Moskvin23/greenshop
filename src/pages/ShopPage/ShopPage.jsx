@@ -3,12 +3,14 @@ import styles from "./ShopPage.module.scss"
 import Header from "../../components/Common/Header/Header"
 import Footer from "../../components/Common/Footer/Footer"
 import { FaFacebookF } from "react-icons/fa"
-import { AiOutlineTwitter } from "react-icons/ai"
+import { AiOutlineHeart, AiOutlineTwitter } from "react-icons/ai"
 import { FaLinkedinIn } from "react-icons/fa"
 import { CiMail } from "react-icons/ci"
 import { useSelector } from "react-redux"
 import { selectedPlantSelector, setSelectedPlant } from "../../Redux/slices/plantsSlice"
 import { useEffect } from "react"
+import BuyNowButton from "../../components/Buttons/BuyNowButton/BuyNowButton"
+import AddToCartButton from "../../components/Buttons/AddToCartButton/AddToCartButton"
 const items = [
   { id: 1, name: "Product Description" },
   { id: 2, name: "Reviews" },
@@ -87,7 +89,6 @@ const ShopPage = () => {
               <h1>{selectedPlant.title}</h1>
               <div className={styles.priceAndReview}>
                 <p className={styles.price}>{`$${selectedPlant.price.toFixed(2)}`}</p>
-                <p>Some Review</p>
               </div>
             </div>
             <div className={styles.borderForRightSection}></div>
@@ -107,17 +108,29 @@ const ShopPage = () => {
                 </span>
               ))}
             </div>
-            <div className={styles.counters}>
-              <button
-                className={styles.incrementAndDecrement}
-                onClick={() => setQuantity((prev) => (prev === 1 ? 1 : prev - 1))}>
-                -
-              </button>
-              <span>{quantity}</span>
-              <button
-                className={styles.incrementAndDecrement}
-                onClick={() => setQuantity((prev) => prev + 1)}>
-                +
+            <div className={styles.sectionWithCountersAndButtons}>
+              <div className={styles.counters}>
+                <button
+                  className={styles.incrementAndDecrement}
+                  onClick={() => setQuantity((prev) => (prev === 1 ? 1 : prev - 1))}>
+                  -
+                </button>
+                <span>{quantity}</span>
+                <button
+                  className={styles.incrementAndDecrement}
+                  onClick={() => setQuantity((prev) => prev + 1)}>
+                  +
+                </button>
+              </div>
+              <BuyNowButton />
+              <AddToCartButton />
+              <button className={styles.likeButton}>
+                <AiOutlineHeart
+                  style={{
+                    width: "22px",
+                    height: "22px",
+                  }}
+                />
               </button>
             </div>
             <div className={styles.lastSectionOfPartOverview}>
