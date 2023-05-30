@@ -89,9 +89,25 @@ margin-bottom: 20px;
   margin-top: 24px;
   margin-bottom: 10px;
 }
-.increment{
+.counters{
   margin-top: 23px;
   margin-bottom: 26px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+.incrementAndDecrement {
+  width: 33px;
+height: 38px;
+background-color: #4ccc65;
+border: none;
+border-radius: 29px;
+color: #d2f1d7;
+font-size: 24px;
+font-weight: 400;
+cursor: pointer;
+padding-bottom: 4px;
 }
 .shareThisProducts{
   margin-top: 18px;
