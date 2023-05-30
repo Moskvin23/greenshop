@@ -1,31 +1,32 @@
-import React, { useState } from 'react';
-import styles from './FilterPlants.module.scss';
-const plants = [
-  { id: 1, name: 'All Plants' },
-  { id: 2, name: 'New Arrivals' },
-  { id: 3, name: 'Sale' },
-];
+import React from "react"
+import styles from "./FilterPlants.module.scss"
+import { useSelector, useDispatch } from "react-redux"
+import { setActiveCategory, filterOptions } from "../../Redux/slices/filterSlice"
+
 const FilterPlants = () => {
-  const [activeCategory, setActiveCategory] = useState(plants[0]);
-  const handleClick = (plants) => {
-    setActiveCategory(plants);
-  };
+  const activeCategory = useSelector((state) => state.filter.activeCategory)
+  const dispatch = useDispatch()
+
+  const handleClick = (option) => {
+    dispatch(setActiveCategory(option))
+  }
+
   return (
     <>
       <section className={styles.middlePartOfHeader}>
         <ul>
-          {plants.map((plant) => (
+          {filterOptions.map((option) => (
             <li
-              key={plant.id}
-              className={plant === activeCategory ? styles.active : ''}
-              onClick={() => handleClick(plant)}>
-              {plant.name}
+              key={option.id}
+              className={option === activeCategory ? styles.active : ""}
+              onClick={() => handleClick(option)}>
+              {option.name}
             </li>
           ))}
         </ul>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default FilterPlants;
+export default FilterPlants

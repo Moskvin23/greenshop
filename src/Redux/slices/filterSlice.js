@@ -1,16 +1,22 @@
-import { createSlice } from '@reduxjs/toolkit';
-const initialState = {
-  searchValue: '',
-};
+import { createSlice } from "@reduxjs/toolkit"
+
+const filterOptions = [
+  { id: 1, name: "All Plants" },
+  { id: 2, name: "New Arrivals" },
+  { id: 3, name: "Sale" },
+]
+
 const filterSlice = createSlice({
-  name: 'filters',
-  initialState,
+  name: "filter",
+  initialState: { activeCategory: filterOptions[0] },
   reducers: {
-    setSearchValue(state, action) {
-      state.searchValue = action.payload;
+    setActiveCategory: (state, action) => {
+      state.activeCategory = action.payload
     },
   },
-});
+})
 
-export const { setSearchValue } = filterSlice.actions;
-export default filterSlice.reducer;
+export const { setActiveCategory } = filterSlice.actions
+export const selectFilterOptions = (state) => state.filter.filterOptions
+export default filterSlice.reducer
+export { filterOptions }
