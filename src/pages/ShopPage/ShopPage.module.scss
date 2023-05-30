@@ -1,137 +1,171 @@
-.container{
+.container {
   width: 100%;
   display: flex;
   align-items: start;
   flex-direction: column;
-  p{
+  p {
     font-weight: 400;
-font-size: 14px;
-line-height: 24px;
-color: #727272;
+    font-size: 14px;
+    line-height: 24px;
+    color: #727272;
   }
-  span{
-    color:rgb(41, 41, 41);
+  span {
+    color: rgb(41, 41, 41);
     font-weight: 500;
   }
-  .plantOverview{
+
+  .plantOverview {
     height: 635px;
-    display: flex; 
+    display: flex;
     flex-direction: row;
-  .leftSection{
-    flex:1;
-display: grid;
-grid-template-columns: 100px 1fr;
-align-content: center;
 
+    .leftSection {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      align-content: center;
 
-.col1{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  .selectedImageIndex {
-    border: 2px solid #4ccc65;
-  }
-}
-.col1  img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-}
+      .col1 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        .selectedImageIndex {
+          border: 2px solid #4ccc65;
+        }
+      }
+      .col1 img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+      }
 
-.col2{
-  margin-left: 29px;
-}
-.col2 img {
-  width: 445px;
-  height: 445px;
-  object-fit: contain;
-}
-  }
-  .rightSection{
-flex: 1;
-h1,h5,p{
-  margin: 0; 
-}
-.shortDescription{
-  margin-top: 15px;
-  margin-bottom: 10px;
-}
-h5{
-  font-weight: 500;
-font-size: 16px;
-line-height: 16px;
-}
-.topOfRightSection {
-  margin-top: 95px;
-    border-bottom: 1px solid #d2f1d7;    
-    h1{
-      font-style: normal;
-font-weight: 700;
-font-size: 28px;
-line-height: 16px;
-margin-bottom: 20px;
-    }
-    .priceAndReview{
-      display: flex;
-      justify-content: space-between;
-      .price{
-        font-weight: 700;
-        font-size: 22px;
-        line-height: 16px;
-        color: #4ccc65;
-        margin-bottom: 12px;
+      .col2 {
+        margin-left: 29px;
+      }
+      .col2 img {
+        width: 445px;
+        height: 445px;
+        object-fit: contain;
       }
     }
- 
-    
-}
-.size{
-  margin-top: 24px;
-  margin-bottom: 10px;
-}
-.counters{
-  margin-top: 23px;
-  margin-bottom: 26px;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 10px;
-}
-.incrementAndDecrement {
-  width: 33px;
-height: 38px;
-background-color: #4ccc65;
-border: none;
-border-radius: 29px;
-color: #d2f1d7;
-font-size: 24px;
-font-weight: 400;
-cursor: pointer;
-padding-bottom: 4px;
-}
-.shareThisProducts{
-  margin-top: 18px;
-}
+    .rightSection {
+      flex: 1;
+      h1,
+      h5,
+      p {
+        margin: 0;
+      }
+      .shortDescription {
+        margin-top: 15px;
+        margin-bottom: 10px;
+      }
+      h5 {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 16px;
+      }
+      .topOfRightSection {
+        margin-top: 95px;
+        border-bottom: 1px solid #d2f1d7;
+        h1 {
+          font-style: normal;
+          font-weight: 700;
+          font-size: 28px;
+          line-height: 16px;
+          margin-bottom: 20px;
+        }
+        .priceAndReview {
+          display: flex;
+          justify-content: space-between;
+          .price {
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 16px;
+            color: #4ccc65;
+            margin-bottom: 12px;
+          }
+        }
+      }
+      .sizeIndex {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 10px;
+        .selectedSizeIndex {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 28px;
+          height: 28px;
+          cursor: pointer;
+          border-radius: 50%;
+          border: 1px solid #e0e0e0;
+        }
+        .selectedSizeIndexActive {
+          width: 28px;
+          height: 28px;
+          color: #4ccc65;
+          font-weight: 800;
+          border-radius: 50%;
+          border: 2px solid #4ccc65;
+        }
+      }
+
+      .size {
+        margin-top: 24px;
+        margin-bottom: 10px;
+      }
+
+      .counters {
+        margin-top: 23px;
+        margin-bottom: 26px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 10px;
+      }
+      .incrementAndDecrement {
+        width: 33px;
+        height: 38px;
+        background-color: #4ccc65;
+        border: none;
+        border-radius: 29px;
+        color: #d2f1d7;
+        font-size: 24px;
+        font-weight: 400;
+        cursor: pointer;
+        padding-bottom: 4px;
+      }
+      .shareThisProducts {
+        margin-top: 18px;
+      }
+      .lastSectionOfPartOverview {
+        p {
+          color: #acacac;
+        }
+        span {
+          color: rgb(41, 41, 41);
+        }
+      }
+    }
   }
-}
-  .plantItems{
-    
-  ul {
+
+  .plantItems {
+    ul {
       list-style: none;
       margin: 0;
       padding: 0;
       gap: 37px;
       display: flex;
-      white-space:nowrap;
+      white-space: nowrap;
       li {
         font-weight: 400;
         font-size: 15px;
         line-height: 16px;
         cursor: pointer;
         transition: color 0.2s ease;
-        width:100%;
-       
-    
+        width: 100%;
+
         &:last-child {
           margin-bottom: 0;
         }
@@ -146,25 +180,24 @@ padding-bottom: 4px;
           padding-bottom: 7px;
           border-bottom: 2px solid #4ccc65;
         }
-       
       }
     }
-    
   }
-.border{
-  border-bottom: 1px solid #d2f1d7;
-  width: 100%;
-}
-.productDescription{
-  margin-top: 20px;
-  margin-bottom: 130px;
-  p,h5{
-    margin:0px;
+  .border {
+    border-bottom: 1px solid #d2f1d7;
+    width: 100%;
   }
-  .titleForProductDescription{
-    margin-top: 18px;
-    margin-bottom: 4px;
-  }
-}
-}
+  .productDescription {
+    margin-top: 20px;
+    margin-bottom: 130px;
+    p,
+    h5 {
+      margin: 0px;
+    }
 
+    .titleForProductDescription {
+      margin-top: 18px;
+      margin-bottom: 4px;
+    }
+  }
+}
