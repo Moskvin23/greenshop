@@ -100,6 +100,10 @@
           cursor: pointer;
           border-radius: 50%;
           border: 1px solid #e0e0e0;
+          transition: transform 0.2s ease-in-out;
+          &:hover {
+            transform: scale(1.2);
+          }
         }
         .selectedSizeIndexActive {
           width: 28px;
@@ -122,19 +126,30 @@
         display: flex;
         justify-content: start;
         align-items: center;
-        gap: 10px;
-      }
-      .incrementAndDecrement {
-        width: 33px;
-        height: 38px;
-        background-color: #4ccc65;
-        border: none;
-        border-radius: 29px;
-        color: #d2f1d7;
-        font-size: 24px;
-        font-weight: 400;
-        cursor: pointer;
-        padding-bottom: 4px;
+        gap: 16px;
+        span {
+          font-size: 20px;
+        }
+        .incrementAndDecrement {
+          width: 33px;
+          height: 38px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #4ccc65;
+          border: none;
+          border-radius: 45%;
+          color: #d2f1d7;
+          font-size: 24px;
+          font-weight: 500;
+          cursor: pointer;
+          padding-bottom: 4px;
+          transition: transform 0.2s ease-in-out;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
       }
       .shareThisProducts {
         margin-top: 18px;
@@ -145,6 +160,24 @@
         }
         span {
           color: rgb(41, 41, 41);
+        }
+        .socialMediaIconsAndShare {
+          display: flex;
+          justify-content: start;
+          flex-direction: column;
+          gap: 15px;
+          .socialMediaIcons {
+            display: flex;
+            gap: 10px;
+            svg {
+              transition: transform 0.2s ease-in-out;
+            }
+            svg:hover {
+              color: #4ccc65;
+              cursor: pointer;
+              transform: scale(1.4);
+            }
+          }
         }
       }
     }

@@ -2,7 +2,10 @@ import React, { useState } from "react"
 import styles from "./ShopPage.module.scss"
 import Header from "../../components/Common/Header/Header"
 import Footer from "../../components/Common/Footer/Footer"
-
+import { FaFacebookF } from "react-icons/fa"
+import { AiOutlineTwitter } from "react-icons/ai"
+import { FaLinkedinIn } from "react-icons/fa"
+import { CiMail } from "react-icons/ci"
 import { useSelector } from "react-redux"
 import { selectedPlantSelector, setSelectedPlant } from "../../Redux/slices/plantsSlice"
 import { useEffect } from "react"
@@ -44,6 +47,7 @@ const ShopPage = () => {
 
   useEffect(() => {
     retrieveSelectedPlant()
+    window.scrollTo(0, 0)
   }, [])
 
   useEffect(() => {
@@ -131,7 +135,15 @@ const ShopPage = () => {
                   ))}
                 </span>
               </p>
-              <h5 className={styles.shareThisProducts}>Share this products: </h5>
+              <div className={styles.socialMediaIconsAndShare}>
+                <h5 className={styles.shareThisProducts}>Share this products: </h5>
+                <div className={styles.socialMediaIcons}>
+                  <FaFacebookF />
+                  <AiOutlineTwitter />
+                  <FaLinkedinIn />
+                  <CiMail />
+                </div>
+              </div>
             </div>
           </div>
         </div>
