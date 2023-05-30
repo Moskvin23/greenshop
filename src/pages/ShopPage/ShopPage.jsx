@@ -3,7 +3,7 @@ import styles from './ShopPage.module.scss';
 import Header from '../../components/Common/Header/Header';
 import Footer from '../../components/Common/Footer/Footer';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectedPlantSelector, setSelectedPlant } from '../../Redux/slices/plantsSlice';
 import { useEffect } from 'react';
 const items = [
@@ -12,11 +12,11 @@ const items = [
 ];
 
 const ShopPage = () => {
-  const dispatch = useDispatch();
   const [activeCategory, setActiveCategory] = useState(items[0]);
   const selectedPlant = useSelector(selectedPlantSelector);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [selectedImage, setSelectedImage] = useState(selectedPlant.image);
+  const [quantity, setQuantity] = useState(1);
 
   const handleClick = (items) => {
     setActiveCategory(items);
@@ -30,7 +30,7 @@ const ShopPage = () => {
     if (savedPlant) {
       try {
         const parsedPlant = JSON.parse(savedPlant);
-        setSelectedPlant(parsedPlant); // Update local state
+        setSelectedPlant(parsedPlant);
       } catch (error) {
         console.error('Error parsing selectedPlant:', error);
       }
@@ -48,6 +48,7 @@ const ShopPage = () => {
   if (!selectedPlant) {
     return null;
   }
+  console.log(selectedPlant);
   return (
     <>
       <Header />
@@ -83,14 +84,22 @@ const ShopPage = () => {
             </div>
             <div className={styles.borderForRightSection}></div>
             <h5 className={styles.shortDescription}>Short Description:</h5>
-            <p>
-              The ceramic cylinder planters come with a wooden stand to help elevate your plants off
-              the ground. The ceramic cylinder planters come with a wooden stand to help elevate
-              your plants off the ground.
-            </p>
+            <p>{'Sometext'}</p>
             <h5 className={styles.size}>Size:</h5>
             <div>S M L XL</div>
-            <div className={styles.increment}>Increment and decrement buy now and add card</div>
+            <div className={styles.counters}>
+              <button
+                className={styles.incrementAndDecrement}
+                onClick={() => setQuantity((prev) => (prev === 1 ? 1 : prev - 1))}>
+                -
+              </button>
+              <span>{quantity}</span>
+              <button
+                className={styles.incrementAndDecrement}
+                onClick={() => setQuantity((prev) => prev + 1)}>
+                +
+              </button>
+            </div>
             <div>
               <p>
                 Categories: <span>Potter Plants</span>
