@@ -1,0 +1,40 @@
+.container {
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #c1f5cb;
+  h1 {
+    display: flex;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 70px;
+    line-height: 70px;
+    text-transform: uppercase;
+    margin-bottom: 120px;
+    margin-top: 100px;
+    span {
+      margin-left: 12px;
+      margin-right: 12px;
+      color: #4ccc65;
+    }
+  }
+  h2 {
+    font-size: 24px;
+    padding-bottom: 7px;
+    text-align: start;
+    margin: 0px;
+    padding-top: 10px;
+    border-bottom: 1px solid #4ccc65;
+  }
+  p {
+    line-height: 28px;
+    text-align: start;
+    font-size: 16px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    margin-top: 30px;
+    margin-right: 40px;
+  }
+}
