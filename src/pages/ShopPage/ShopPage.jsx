@@ -48,14 +48,15 @@ const ShopPage = () => {
           <div className={styles.leftSection}>
             <div className={styles.col1}>
               {selectedPlant.additionalImages.map((image, index) => (
-                <img
-                  key={index}
-                  src={require(`../../assets/images/imagesForCards/${image}`)}
-                  alt="image"
-                  style={{ cursor: "pointer" }}
-                  onClick={() => handleImageClick(image, index)}
-                  className={selectedImageIndex === index ? styles.selectedImageIndex : ""}
-                />
+                <div key={index}>
+                  <img
+                    src={require(`../../assets/images/imagesForCards/${image}`)}
+                    alt="image"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => handleImageClick(image, index)}
+                    className={selectedImageIndex === index ? styles.selectedImageIndex : ""}
+                  />
+                </div>
               ))}
             </div>
             <div className={styles.col2}>
@@ -122,7 +123,7 @@ const ShopPage = () => {
                 Tags:{" "}
                 <span className={styles.tags}>
                   {selectedPlant.tags.map((tag, index) => (
-                    <span>
+                    <span key={index}>
                       {tag.charAt(0).toUpperCase() + tag.slice(1)}
                       {index !== selectedPlant.tags.length - 1 && ", "}
                     </span>

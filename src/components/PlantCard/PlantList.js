@@ -34,7 +34,7 @@ const PlantList = () => {
           <h2>There are currently no plants from this category</h2>
         </div>
       ) : (
-        filteredPlants.map((plant) => <PlantCard plant={plant} />)
+        filteredPlants.map((plant) => <PlantCard key={plant.id} plant={plant} />)
       )}
     </div>
   )
