@@ -35,30 +35,11 @@ const ShopPage = () => {
   const handleSizeClick = (index) => {
     setSelectedSizeIndex(index)
   }
-  const retrieveSelectedPlant = () => {
-    const savedPlant = localStorage.getItem("selectedPlant")
-    if (savedPlant) {
-      try {
-        const parsedPlant = JSON.parse(savedPlant)
-        setSelectedPlant(parsedPlant)
-      } catch (error) {
-        console.error("Error parsing selectedPlant:", error)
-      }
-    }
-  }
 
   useEffect(() => {
-    retrieveSelectedPlant()
     window.scrollTo(0, 0)
   }, [])
 
-  useEffect(() => {
-    localStorage.setItem("selectedPlant", JSON.stringify(selectedPlant))
-  }, [selectedPlant])
-
-  if (!selectedPlant) {
-    return null
-  }
   return (
     <>
       <Header />
