@@ -1,11 +1,11 @@
-import HomePage from './pages/HomePage/HomePage';
-import styles from './App.module.scss';
-import { Route, Routes } from 'react-router-dom';
-import ShopPage from './pages/ShopPage/ShopPage';
-import BlogsPage from './pages/BlogsPage/BlogsPage';
-import PlantCarePage from './pages/PlantCarePage/PlantCarePage';
-import LoginPage from './pages/LoginPage/LoginPage';
-import BasketPage from './pages/BasketPage/BasketPage';
+import HomePage from "./pages/HomePage/HomePage"
+import styles from "./App.module.scss"
+import { Route, Routes } from "react-router-dom"
+import ShopPage from "./pages/ShopPage/ShopPage"
+import BlogsPage from "./pages/BlogsPage/BlogsPage"
+import PlantCarePage from "./pages/PlantCarePage/PlantCarePage"
+import LoginPage from "./pages/LoginPage/LoginPage"
+import BasketPage from "./pages/BasketPage/BasketPage"
 function App() {
   return (
     <div className={styles.wrapper}>
@@ -18,7 +18,7 @@ function App() {
         <Route path="/basket" element={<BasketPage />} />
       </Routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
