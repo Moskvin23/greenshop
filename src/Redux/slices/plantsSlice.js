@@ -35,6 +35,9 @@ const plantsSlice = createSlice({
       .addCase(fetchPlants.fulfilled, (state, action) => {
         state.status = "success"
         state.plants = action.payload
+        if (action.payload.length > 0) {
+          state.selectedPlant = action.payload[0]
+        }
       })
       .addCase(fetchPlants.rejected, (state, action) => {
         state.status = "error"
