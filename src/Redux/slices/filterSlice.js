@@ -9,6 +9,7 @@ const filterOptions = [
 const filterSlice = createSlice({
   name: "filter",
   initialState: { activeCategory: filterOptions[0] },
+  plants: [],
   reducers: {
     setActiveCategory: (state, action) => {
       state.activeCategory = action.payload

@@ -6,6 +6,7 @@ import BlogsPage from "./pages/BlogsPage/BlogsPage"
 import PlantCarePage from "./pages/PlantCarePage/PlantCarePage"
 import LoginPage from "./pages/LoginPage/LoginPage"
 import BasketPage from "./pages/BasketPage/BasketPage"
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage"
 function App() {
   return (
     <div className={styles.wrapper}>
@@ -16,6 +17,7 @@ function App() {
         <Route path="/plantCare" element={<PlantCarePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/basket" element={<BasketPage />} />
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
     </div>
   )

@@ -6,8 +6,6 @@ export const fetchPlants = createAsyncThunk("plants/fetchPlants", async (params)
   const { data } = await axios.get(
     `https://644c22f44bdbc0cc3aa333ba.mockapi.io/GreenshopAPI/Plants?name=${activeCategory?.id}`,
   )
-  sessionStorage.setItem("plants", JSON.stringify(data))
-  console.log(sessionStorage.getItem("plants"))
 
   return data
 })
