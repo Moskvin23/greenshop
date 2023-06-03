@@ -6,7 +6,16 @@
   justify-content: space-around;
   flex-direction: column;
   background-color: #faf7f7;
-  
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 0 0 rgba(76, 204, 101, 0);
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    .readMore {
+      transform: scale(1.1);
+      color: #4ccc65;
+    }
+  }
   .cardImage {
     top: 0;
     left: 0;
@@ -43,11 +52,6 @@
       cursor: pointer;
       max-width: max-content;
       transition: all 0.4s ease-in-out;
-      &:hover {
-        transform: scale(1.1); 
-        color: #4ccc65; 
-      }
     }
-    
   }
 }
