@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Header from "../../components/Common/Header/Header"
 import Footer from "../../components/Common/Footer/Footer"
 import styles from "./PlantCarePage.module.scss"
@@ -6,6 +6,9 @@ import careData from "./PlantCareData"
 import replace from "react-string-replace"
 
 const PlantCarePage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   const insertEmptyParagraphs = (text) => {
     const sentences = text.split(". ")
     const modifiedText = sentences.map((sentence, index) => {
