@@ -28,10 +28,7 @@ const HomePage = () => {
       <div className={styles.middlePArtOfPage} id="middleSection">
         <Sidebar />
         <div className={styles.filterPlantsWithSortBy}>
-          <div className={styles.filterPlants}>
-            <FilterPlants />
-            <SortingCards />
-          </div>
+          <div className={styles.filterPlants}></div>
           <div>
             <PlantList />
           </div>

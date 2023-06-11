@@ -1,42 +1,46 @@
-import { useEffect } from "react"
+import React, { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { activeCategorySelector } from "../../Redux/slices/categoriesSlice"
+import { fetchPlants, filteredPlantsSelector } from "../../Redux/slices/plantsSlice"
 import PlantCard from "./PlantCard"
 import PlantCardSkeleton from "./Skeleton"
 import styles1 from "../../pages/HomePage/HomePage.module.scss"
-import { fetchPlants, plantsSelector } from "../../Redux/slices/plantsSlice"
+import { activeCategoryIdSelector } from "../../Redux/slices/categoriesSlice"
+import FilterPlants from "../FilterPlants/FilterPlants"
+import SortingCards from "../SortingCards/SortingCards"
+import styles from "./PlantList.module.scss"
 
 const PlantList = () => {
-  const plants = useSelector(plantsSelector)
   let { status } = useSelector((state) => state.plants)
-  const activeCategory = useSelector(activeCategorySelector)
+  const activeCategoryId = useSelector(activeCategoryIdSelector)
+  const filteredPlants = useSelector(filteredPlantsSelector)
   const dispatch = useDispatch()
-  const filteredPlants = plants.filter((plant) => plant.type === activeCategory?.name)
 
   useEffect(() => {
-    const fetchData = async () => {
-      dispatch(fetchPlants({ activeCategory }))
-    }
-
-    fetchData()
-  }, [activeCategory, dispatch])
+    dispatch(fetchPlants(activeCategoryId))
+  }, [activeCategoryId, dispatch])
 
   return (
-    <div className={styles1.listCards}>
-      {status === "error" ? (
-        <div>
-          <h2>Oops, something went wrong...</h2>
-        </div>
-      ) : status === "loading" ? (
-        [...new Array(9)].map((_, index) => <PlantCardSkeleton key={index} />)
-      ) : filteredPlants.length === 0 ? (
-        <div>
-          <h2>There are currently no plants from this category</h2>
-        </div>
-      ) : (
-        filteredPlants.map((plant, index) => <PlantCard plant={plant} key={index} />)
-      )}
-    </div>
+    <>
+      <div className={styles.topOfListCards}>
+        <FilterPlants />
+        <SortingCards />
+      </div>
+      <div className={styles1.listCards}>
+        {status === "error" ? (
+          <div>
+            <h2>Oops, something went wrong...</h2>
+          </div>
+        ) : status === "loading" ? (
+          [...new Array(9)].map((_, index) => <PlantCardSkeleton key={index} />)
+        ) : filteredPlants.length === 0 ? (
+          <div>
+            <h2>There are currently no plants from this category</h2>
+          </div>
+        ) : (
+          filteredPlants.map((plant, index) => <PlantCard plant={plant} key={index} />)
+        )}
+      </div>
+    </>
   )
 }
 

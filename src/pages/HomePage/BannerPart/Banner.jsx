@@ -1,14 +1,13 @@
-import React from 'react';
-import styles from './Banner.module.scss';
-import ShopNowButton from '../../../components/Buttons/ShopNowButton/ShopNowButton';
-import { dotSlide } from '../../../Redux/slices/sliderSlice';
-import { useSelector, useDispatch } from 'react-redux';
-import { sliderData } from './sliderData';
+import React from "react"
+import styles from "./Banner.module.scss"
+import ShopNowButton from "../../../components/Buttons/ShopNowButton/ShopNowButton"
+import { dotSlide } from "../../../Redux/slices/sliderSlice"
+import { useSelector, useDispatch } from "react-redux"
+import { sliderData } from "./sliderData"
 
 const Banner = () => {
-  const slideIndex = useSelector((state) => state.slider.value);
-  console.log(slideIndex);
-  const dispatch = useDispatch();
+  const slideIndex = useSelector((state) => state.slider.value)
+  const dispatch = useDispatch()
 
   return (
     <>
@@ -50,14 +49,14 @@ const Banner = () => {
                       }`}
                       onClick={() => dispatch(dotSlide(index))}></div>
                   </div>
-                );
+                )
               })}
             </div>
           </div>
-        );
+        )
       })}
     </>
-  );
-};
+  )
+}
 
-export default Banner;
+export default Banner

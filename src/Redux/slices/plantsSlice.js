@@ -1,27 +1,26 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
+import { BASE_URL } from "../../constants"
+import { activeCategoryIdSelector } from "./categoriesSlice"
 
-export const fetchPlants = createAsyncThunk("plants/fetchPlants", async (params) => {
-  const { activeCategory } = params
+export const fetchPlants = createAsyncThunk("plants/fetchPlants", async (activeCategoryId) => {
   const { data } = await axios.get(
-    `https://644c22f44bdbc0cc3aa333ba.mockapi.io/GreenshopAPI/Plants?name=${activeCategory?.id}`,
+    `${BASE_URL}?categoryId=${activeCategoryId ? activeCategoryId : ""}`,
   )
-
   return data
 })
 
 const initialState = {
+  filterBy: undefined,
   plants: [],
-  status: "idle" | "loading" | "success" | "error",
+  status: "idle",
+  selectedPlant: undefined,
 }
 
 const plantsSlice = createSlice({
   name: "plants",
   initialState,
   reducers: {
-    setPlants(state, action) {
-      state.plants = action.payload
-    },
     setSelectedPlant: (state, action) => {
       state.selectedPlant = action.payload
     },
@@ -39,15 +38,19 @@ const plantsSlice = createSlice({
           state.selectedPlant = action.payload[0]
         }
       })
-      .addCase(fetchPlants.rejected, (state, action) => {
+      .addCase(fetchPlants.rejected, (state) => {
         state.status = "error"
         state.plants = []
-        console.log(action)
       })
   },
 })
+
+export const filteredPlantsSelector = (state) => {
+  const activeCategoryId = activeCategoryIdSelector(state)
+  return state.plants.plants.filter((plant) => plant.type === activeCategoryId?.name)
+}
+
+export const plantsSelector = (state) => state.plants
 export const selectedPlantSelector = (state) => state.plants.selectedPlant
-export const plantsSelector = (state) => state.plants.plants
-export const { setPlants } = plantsSlice.actions
-export default plantsSlice.reducer
 export const { setSelectedPlant } = plantsSlice.actions
+export default plantsSlice.reducer

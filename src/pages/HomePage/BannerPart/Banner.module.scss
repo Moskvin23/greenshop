@@ -1,65 +1,59 @@
-
-.wrapper{
-  margin-top: 12px;
-  
- .container {
+.wrapper {
+  .container {
     padding-top: 70px;
     padding-left: 45px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-   height: 450px; 
-    background:  linear-gradient(rgba(245, 245, 245) 0%, rgba(245, 245, 245) 100%);
-    
-.leftSection{
- .mainTitle{
-font-weight: 500;
-font-size: 14px;
-line-height: 16px;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-margin-bottom: 10px;    
-}
-.title {
-margin:0;
-padding:0;
-font-style: normal;
-font-weight: 900;
-font-size: 70px;
-line-height: 70px;
-text-transform: uppercase;
-margin-bottom: 10px;    
+    height: 450px;
+    background: linear-gradient(rgba(245, 245, 245) 0%, rgba(245, 245, 245) 100%);
 
-span{
-  color: #4ccc65;
+    .leftSection {
+      .mainTitle {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .title {
+        margin: 0;
+        padding: 0;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 70px;
+        line-height: 70px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+
+        span {
+          color: #4ccc65;
+        }
+      }
+      .description {
+        font-family: "Cera Pro";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #727272;
+        margin-bottom: 40px;
+        margin-top: 20px;
+      }
+      .buttonWrapper {
+        margin-left: -30px;
+      }
     }
-  }
-  .description{
-    font-family: 'Cera Pro';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 24px;
-color: #727272;
-margin-bottom: 40px;
-margin-top: 20px;
-  }
-  .buttonWrapper {
-    margin-left: -30px;
-  }
-    }
-    .rightSection{
+    .rightSection {
       display: flex;
       margin-left: 150px;
       max-height: 70%;
-      
     }
     .rightSection img {
       max-height: 100%;
       max-width: 100%;
       object-fit: contain;
-
     }
-    
   }
 }
 .dotContainer {
@@ -67,62 +61,61 @@ margin-top: 20px;
   position: absolute;
   bottom: 10px;
   left: 45%;
-gap: 4px;
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      padding: 2px;
-      cursor: pointer;
-      
-    }
-
-    .activeDot {
-      background-color: #4ccc65;
-    }
-
-    .inactiveDot {
-      background-color: rgba(70, 163, 88, 0.3);
-    }
+  gap: 4px;
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    padding: 2px;
+    cursor: pointer;
   }
 
-  .slide {
+  .activeDot {
+    background-color: #4ccc65;
+  }
+
+  .inactiveDot {
+    background-color: rgba(70, 163, 88, 0.3);
+  }
+}
+
+.slide {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
+  position: relative;
+}
+.slideActive {
+  opacity: 1;
+  transform: scale(1);
+}
+.slideInactive {
+  opacity: 0;
+  transform: scale(1);
+  position: absolute;
+  z-index: -1;
+}
+
+.scale-100 {
+  transform: scale(1);
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
-    position: relative;
+    z-index: -1;
   }
-    .slideActive {
-      opacity: 1;
-      transform: scale(1);
-    }
-    .slideInactive {
-      opacity: 0;
-      transform: scale(1);
-      position: absolute;
-      z-index: -1;
-    }
-    
-    .scale-100 {
-      transform: scale(1);
-    }
-    @keyframes fade-in {
-      0% {
-        opacity: 0.2;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-    @keyframes fade-out {
-      0% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-        z-index: -1;
-      }
-    }
-    .slideActive {
-      animation: fade-in 700ms ease-in-out;
-    }
+}
+.slideActive {
+  animation: fade-in 700ms ease-in-out;
+}

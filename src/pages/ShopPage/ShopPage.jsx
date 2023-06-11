@@ -7,7 +7,7 @@ import { AiOutlineHeart, AiOutlineTwitter } from "react-icons/ai"
 import { FaLinkedinIn } from "react-icons/fa"
 import { CiMail } from "react-icons/ci"
 import { useSelector } from "react-redux"
-import { selectedPlantSelector, setSelectedPlant } from "../../Redux/slices/plantsSlice"
+import { selectedPlantSelector } from "../../Redux/slices/plantsSlice"
 import { useEffect } from "react"
 import BuyNowButton from "../../components/Buttons/BuyNowButton/BuyNowButton"
 import AddToCartButton from "../../components/Buttons/AddToCartButton/AddToCartButton"
@@ -18,14 +18,14 @@ const items = [
 
 const ShopPage = () => {
   const [selectedSizeIndex, setSelectedSizeIndex] = useState(1)
-  const [activeCategory, setActiveCategory] = useState(items[0])
+  const [activeCategoryId, setActiveCategoryId] = useState(items[0])
   const selectedPlant = useSelector(selectedPlantSelector)
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
   const [selectedImage, setSelectedImage] = useState(selectedPlant.image)
   const [quantity, setQuantity] = useState(1)
 
   const handleClick = (items) => {
-    setActiveCategory(items)
+    setActiveCategoryId(items)
   }
   const handleImageClick = (image, index) => {
     setSelectedImage(image)
@@ -148,7 +148,7 @@ const ShopPage = () => {
               {items.map((item) => (
                 <li
                   key={item.id}
-                  className={item === activeCategory ? styles.active : ""}
+                  className={item === activeCategoryId ? styles.active : ""}
                   onClick={() => handleClick(item)}>
                   {item.name}
                 </li>
