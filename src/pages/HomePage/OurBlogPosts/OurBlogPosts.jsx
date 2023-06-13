@@ -1,6 +1,6 @@
-import React from 'react';
-import styles from './OurBlogPosts.module.scss';
-import BlogPostCard from './BlogPostCard';
+import React from "react"
+import styles from "./OurBlogPosts.module.scss"
+import BlogPostCard from "./BlogPostCard"
 const OurBlogPosts = () => {
   return (
     <div className={styles.container}>
@@ -10,12 +10,9 @@ const OurBlogPosts = () => {
       </div>
       <div className={styles.bottomSection}>
         <BlogPostCard />
-        <BlogPostCard />
-        <BlogPostCard />
-        <BlogPostCard />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default OurBlogPosts;
+export default OurBlogPosts

@@ -1,23 +1,23 @@
 import React, { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { fetchPlants, filteredPlantsSelector } from "../../Redux/slices/plantsSlice"
+import { fetchPlants, getFilteredPlants, getPlantsFilters } from "../../Redux/slices/plantsSlice"
 import PlantCard from "./PlantCard"
 import PlantCardSkeleton from "./Skeleton"
 import styles1 from "../../pages/HomePage/HomePage.module.scss"
-import { activeCategoryIdSelector } from "../../Redux/slices/categoriesSlice"
+// import { activeCategoryIdSelector } from "../../Redux/slices/categoriesSlice"
 import FilterPlants from "../FilterPlants/FilterPlants"
 import SortingCards from "../SortingCards/SortingCards"
 import styles from "./PlantList.module.scss"
 
 const PlantList = () => {
   let { status } = useSelector((state) => state.plants)
-  const activeCategoryId = useSelector(activeCategoryIdSelector)
-  const filteredPlants = useSelector(filteredPlantsSelector)
+  const plantsFilters = useSelector(getPlantsFilters)
+  const filteredPlants = useSelector(getFilteredPlants)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchPlants(activeCategoryId))
-  }, [activeCategoryId, dispatch])
+    dispatch(fetchPlants(plantsFilters))
+  }, [plantsFilters, dispatch])
 
   return (
     <>

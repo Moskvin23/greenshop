@@ -1,7 +1,8 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { createAsyncThunk, createSelector, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 import { BASE_URL } from "../../constants"
 import { activeCategoryIdSelector } from "./categoriesSlice"
+import { plantsFilterType } from "../../enums"
 
 export const fetchPlants = createAsyncThunk("plants/fetchPlants", async (activeCategoryId) => {
   const { data } = await axios.get(
@@ -11,10 +12,10 @@ export const fetchPlants = createAsyncThunk("plants/fetchPlants", async (activeC
 })
 
 const initialState = {
-  filterBy: undefined,
+  filterBy: plantsFilterType.AllPlants,
   plants: [],
   status: "idle",
-  selectedPlant: undefined,
+  selectedPlant: null,
 }
 
 const plantsSlice = createSlice({
@@ -23,6 +24,9 @@ const plantsSlice = createSlice({
   reducers: {
     setSelectedPlant: (state, action) => {
       state.selectedPlant = action.payload
+    },
+    setFilterBy: (state, action) => {
+      state.filterBy = action.payload
     },
   },
   extraReducers: (builder) => {
@@ -45,12 +49,20 @@ const plantsSlice = createSlice({
   },
 })
 
-export const filteredPlantsSelector = (state) => {
+export const getFilteredPlants = (state) => {
   const activeCategoryId = activeCategoryIdSelector(state)
   return state.plants.plants.filter((plant) => plant.type === activeCategoryId?.name)
 }
-
+export const filterBySelector = (state) => {
+  return state.plants.plants.filterBy
+}
 export const plantsSelector = (state) => state.plants
+export const getPlantsFilters = createSelector(
+  [activeCategoryIdSelector, filterBySelector],
+  (activeCategoryIdSelector, filterBySelector) => {
+    return activeCategoryIdSelector || filterBySelector
+  },
+)
 export const selectedPlantSelector = (state) => state.plants.selectedPlant
-export const { setSelectedPlant } = plantsSlice.actions
+export const { setSelectedPlant, setFilterBy } = plantsSlice.actions
 export default plantsSlice.reducer

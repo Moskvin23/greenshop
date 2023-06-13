@@ -1,26 +1,27 @@
 import React from "react"
 import styles from "./FilterPlants.module.scss"
-import { useSelector, useDispatch } from "react-redux"
-import { setActiveCategory, filterOptions } from "../../Redux/slices/filterSlice"
+import { plantsFilterLabel, plantsFilterType } from "../../enums"
+import { useDispatch, useSelector } from "react-redux"
+import { setFilterBy } from "../../Redux/slices/plantsSlice"
 
 const FilterPlants = () => {
-  const activeCategory = useSelector((state) => state.filter.activeCategory)
+  const activeCategory = useSelector((state) => state.plants.filterBy)
+  console.log(activeCategory)
   const dispatch = useDispatch()
 
-  const handleClick = (option) => {
-    dispatch(setActiveCategory(option))
+  const handleClick = (filterBy) => {
+    dispatch(setFilterBy(filterBy))
   }
-
   return (
     <>
       <section className={styles.middlePartOfHeader}>
         <ul>
-          {filterOptions.map((option) => (
+          {Object.values(plantsFilterType).map((plant) => (
             <li
-              key={option.id}
-              className={option === activeCategory ? styles.active : ""}
-              onClick={() => handleClick(option)}>
-              {option.name}
+              key={plant}
+              className={plant === activeCategory ? styles.active : ""}
+              onClick={() => handleClick(plant)}>
+              {plantsFilterLabel[plant]}
             </li>
           ))}
         </ul>
