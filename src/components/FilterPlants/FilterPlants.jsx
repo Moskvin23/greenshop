@@ -6,7 +6,6 @@ import { setFilterBy } from "../../Redux/slices/plantsSlice"
 
 const FilterPlants = () => {
   const activeCategory = useSelector((state) => state.plants.filterBy)
-  console.log(activeCategory)
   const dispatch = useDispatch()
 
   const handleClick = (filterBy) => {

@@ -4,10 +4,8 @@ import { BASE_URL } from "../../constants"
 import { activeCategoryIdSelector } from "./categoriesSlice"
 import { plantsFilterType } from "../../enums"
 
-export const fetchPlants = createAsyncThunk("plants/fetchPlants", async (activeCategoryId) => {
-  const { data } = await axios.get(
-    `${BASE_URL}?categoryId=${activeCategoryId ? activeCategoryId : ""}`,
-  )
+export const fetchPlants = createAsyncThunk("plants/fetchPlants", async (plantsFilters) => {
+  const { data } = await axios.get(`${BASE_URL}${plantsFilters}`)
   return data
 })
 
@@ -53,14 +51,25 @@ export const getFilteredPlants = (state) => {
   const activeCategoryId = activeCategoryIdSelector(state)
   return state.plants.plants.filter((plant) => plant.type === activeCategoryId?.name)
 }
+
 export const filterBySelector = (state) => {
-  return state.plants.plants.filterBy
+  return state.plants.filterBy
 }
+
 export const plantsSelector = (state) => state.plants
 export const getPlantsFilters = createSelector(
   [activeCategoryIdSelector, filterBySelector],
-  (activeCategoryIdSelector, filterBySelector) => {
-    return activeCategoryIdSelector || filterBySelector
+  (activeCategoryId, filterBy) => {
+    const activeCategoryFilterString = activeCategoryId ? `categoryId=${activeCategoryId}` : ""
+    let filterByString = ""
+    if (plantsFilterType.AllPlants === filterBy) {
+      filterByString = ""
+    } else if (plantsFilterType.NewArrival === filterBy) {
+      filterByString = `${plantsFilterType.NewArrival}=${true}`
+    } else if (plantsFilterType.OnSale === filterBy) {
+      filterByString = `${plantsFilterType.OnSale}=${true}`
+    }
+    return `?${filterByString}&${activeCategoryFilterString}`
   },
 )
 export const selectedPlantSelector = (state) => state.plants.selectedPlant

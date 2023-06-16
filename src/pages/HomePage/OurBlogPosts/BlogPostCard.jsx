@@ -42,7 +42,7 @@ const BlogPostCard = () => {
   return (
     <>
       {blogs.map((blog) => (
-        <div className={styles.container} onClick={handleReadMoreClick}>
+        <div key={blog.id} className={styles.container} onClick={handleReadMoreClick}>
           <div className={styles.cardImage} style={{ backgroundImage: `url(${blog.image})` }}></div>
           <div className={styles.cardContent}>
             <h2>{blog.title}</h2>

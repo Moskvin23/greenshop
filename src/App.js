@@ -15,10 +15,10 @@ const PageWrapper = ({ children }) => {
   return (
     <motion.div
       key={location.pathname}
-      initial={{ opacity: 0, y: -20 }}
+      initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0.5 }}
-      transition={{ duration: 0.7 }}>
+      exit={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}>
       {children}
     </motion.div>
   )
